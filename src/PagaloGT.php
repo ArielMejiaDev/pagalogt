@@ -127,9 +127,6 @@ class PagaloGT
         //Execute the request
         $result = curl_exec($ch);
         curl_close($ch);
-        $response = json_decode($result, true);
-        $this->responseDecision = $response['decision'];
-        $this->responseReasonCode = $response['reasonCode'];
-        return $response;
+        return json_decode($result, true);
     }
 }
