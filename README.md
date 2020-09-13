@@ -28,8 +28,8 @@ php artisan vendor:publish --tag=pagalogt-config
 You can get the credentials [Here](https://app.pagalocard.com/developerint), you need to create an account and follow some steps with PagaloGT.
 
 ```dotenv
-PAGALO_TEST_TOKEN='{TestPagaloToken}'
 PAGALO_TEST_IDEN_EMPRESA='{TestPagaloIdenEmpresa}'
+PAGALO_TEST_TOKEN='{TestPagaloToken}'
 PAGALO_TEST_KEY_PUBLIC='{TestPagaloKeyPublic}'
 PAGALO_TEST_KEY_SECRET='{TestPagaloKeySecret}'
 PAGALO_ENVIRONMENT='test'
@@ -38,7 +38,7 @@ PAGALO_ENVIRONMENT='test'
 - For development and testing (to avoid real transactions):
 
 ```php
-$payment = new PagaloGTService();
+$payment = new PagaloGT();
 return $payment->add(1, 'Test transaction', 100.00)
     ->setClient('John', 'Doe', 'john@doe.com')
     ->withTestCard('John Doe')

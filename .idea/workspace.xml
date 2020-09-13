@@ -118,7 +118,7 @@
       <workItem from="1599940539224" duration="264000" />
       <workItem from="1599941383741" duration="7361000" />
       <workItem from="1599972384315" duration="1058000" />
-      <workItem from="1599983120723" duration="7450000" />
+      <workItem from="1599983120723" duration="7916000" />
     </task>
     <servers />
   </component>
@@ -130,6 +130,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="632" y="245" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1599941781901" />
+    <state x="751" y="450" key="NewPhpFileDialog" timestamp="1600035487470">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="751" y="450" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600035487470" />
     <state x="352" y="91" key="SettingsEditor" timestamp="1599983494030">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
