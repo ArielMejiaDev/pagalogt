@@ -2,7 +2,6 @@
 
 namespace ArielMejiaDev\PagaloGT;
 
-use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
@@ -50,7 +49,7 @@ class PagaloGT
             'email'=> $email,
             'ipAddress'=> request()->ip(),
             'Total'=> $this->total(),
-            'fecha_transaccion'=> Carbon::now(),
+            'fecha_transaccion'=> \Carbon\Carbon::now(),
             'deviceFingerprintID' => $this->cybersourceCodeResolver(),
         ];
         return $this;
