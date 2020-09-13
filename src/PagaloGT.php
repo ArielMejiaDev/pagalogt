@@ -132,14 +132,4 @@ class PagaloGT
         $this->responseReasonCode = $response['reasonCode'];
         return $response;
     }
-
-    public function successful()
-    {
-        return $this->responseDecision === PagaloGT::APPROVE_DECISION && $this->responseReasonCode === PagaloGT::APPROVE_REASON_CODE;
-    }
-
-    public function fail()
-    {
-        return $this->responseDecision !== PagaloGT::APPROVE_DECISION || $this->responseReasonCode !== PagaloGT::APPROVE_REASON_CODE;
-    }
 }
