@@ -117,8 +117,10 @@ class PagaloGT
         //Attach our encoded JSON string to the POST fields.
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         //Set the content type to application/json
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         //Execute the request
-        return curl_exec($ch);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($result, true);
     }
 }
