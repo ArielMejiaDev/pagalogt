@@ -15,6 +15,11 @@ class PagaloGT
     private $retryTimes = 3;
     private $retrySleep = 500;
 
+    const APPROVE_REASON_CODE = 100;
+    const APPROVE_DECISION = 'ACCEPT';
+    private $responseDecision;
+    private $responseReasonCode;
+
     public function __construct()
     {
         $this->company = [
@@ -121,7 +126,20 @@ class PagaloGT
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         //Execute the request
         $result = curl_exec($ch);
-//        curl_close($ch);
-        return json_decode($result, true);
+        curl_close($ch);
+        $response = json_decode($result, true);
+        $this->responseDecision = $response['decision'];
+        $this->responseReasonCode = $response['reasonCode'];
+        return $response;
+    }
+
+    public function successful()
+    {
+        return $this->responseDecision === PagaloGT::APPROVE_DECISION && $this->responseReasonCode === PagaloGT::APPROVE_REASON_CODE;
+    }
+
+    public function fail()
+    {
+        return $this->responseDecision !== PagaloGT::APPROVE_DECISION || $this->responseReasonCode !== PagaloGT::APPROVE_REASON_CODE;
     }
 }
