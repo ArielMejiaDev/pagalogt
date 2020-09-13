@@ -49,7 +49,7 @@ class PagaloGT
             'email'=> $email,
             'ipAddress'=> request()->ip(),
             'Total'=> $this->total(),
-            'fecha_transaccion'=> \Carbon\Carbon::now(),
+            'fecha_transaccion'=> now(),
             'deviceFingerprintID' => $this->cybersourceCodeResolver(),
         ];
         return $this;
