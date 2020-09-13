@@ -59,8 +59,8 @@ return PagaloGT::add(1, 'Test transaction', 100.00)
 - On production
 
 ```dotenv
+PAGALO_IDEN_EMPRESA='{LivePagaloIdenEmpresa}'                                             
 PAGALO_TOKEN='{LivePagaloToken}'
-PAGALO_IDEN_EMPRESA='{LivePagaloIdenEmpresa}'
 PAGALO_KEY_PUBLIC='{LivePagaloKeyPublic}'
 PAGALO_KEY_SECRET='{LivePagaloKeySecret}'
 PAGALO_ENVIRONMENT='live'
@@ -71,6 +71,32 @@ return PagaloGT->add(1, 'Test transaction', 100.00)
     ->setClient('John', 'Doe', 'john@doe.com')
     ->setCard('JOHN JOSEPH DOE DULLIE', 'XXXX XXXX XXXX XXXX', 12, 2022, 742)
     ->pay();
+```
+
+## Validate response
+
+The package provide constants to validate response you can do something like:
+
+```php
+$response['decision'] === 'ACCEPT';
+$response['reasonCode'] === 100;
+```
+
+To avoid magic numbers you can do something like this:
+
+
+```php
+use \ArielMejiaDev\PagaloGT\PagaloGT;
+// ...
+$response = PagaloGT::add(1, 'Test transaction from Laravel 5.5', 100.00)
+        ->setClient('John', 'Doe', 'john@doe.com')
+        ->withTestCard('John Doe')
+        ->withTestCredentials()
+        ->pay();
+    if($response['decision'] === PagaloGT::APPROVE_DECISION && 
+       $response['reasonCode'] === PagaloGT::APPROVE_REASON_CODE ) {
+        // do something
+    }
 ```
 
 ### Support Cybersource:
