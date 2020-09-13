@@ -16,7 +16,7 @@ class PagaloGT
     private $retrySleep = 500;
 
     const APPROVE_REASON_CODE = 100;
-    const APPROVE_DECISION = 'ACCEPT';
+    const APPROVE_DECISION = "ACCEPT";
     private $responseDecision;
     private $responseReasonCode;
 
