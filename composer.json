@@ -6,7 +6,7 @@
         "pagalogt"
     ],
     "homepage": "https://github.com/arielmejiadev/pagalogt",
-    "license": "The Unlicense",
+    "license": "MIT",
     "type": "library",
     "authors": [
         {
