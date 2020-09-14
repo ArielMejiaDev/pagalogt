@@ -107,6 +107,13 @@ class PagaloGT
         return $this;
     }
 
+    public function setRetry($times, $sleep)
+    {
+        $this->retryTimes = $times;
+        $this->retrySleep = $sleep;
+        return Http::retry($this->retryTimes, $this->retrySleep)->post($this->url, $data);
+    }
+
     public function pay()
     {
         $data = [
@@ -116,17 +123,6 @@ class PagaloGT
             'tarjetaPagalo' => json_encode($this->card),
         ];
 
-        $ch = curl_init($this->url);
-        //Tell cURL that we want to send a POST request.
-        curl_setopt($ch, CURLOPT_POST, 1);
-        //Attach our encoded JSON string to the POST fields.
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        //Set the content type to application/json
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-        //Execute the request
-        $result = curl_exec($ch);
-        curl_close($ch);
-        return json_decode($result, true);
+        return Http::post($this->url, $data);
     }
 }

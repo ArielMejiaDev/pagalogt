@@ -90,8 +90,14 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/orchestra/testbench" />
-      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
-      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hPZIUMYJqtwaKqC3pxq0Cv99Xt" />
@@ -118,7 +124,7 @@
       <workItem from="1599940539224" duration="264000" />
       <workItem from="1599941383741" duration="7361000" />
       <workItem from="1599972384315" duration="1058000" />
-      <workItem from="1599983120723" duration="14192000" />
+      <workItem from="1599983120723" duration="15095000" />
     </task>
     <servers />
   </component>
