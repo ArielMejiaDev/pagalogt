@@ -75,6 +75,8 @@ return PagaloGT->add(1, 'Test transaction', 100.00)
 
 ## Validate response
 
+### In Laravel 5.5 to Laravel 6.x
+
 The package provide constants to validate response you can do something like:
 
 ```php
@@ -99,9 +101,11 @@ $response = PagaloGT::add(1, 'Test transaction from Laravel 5.5', 100.00)
     }
 ```
 
-### Validation in Laravel 7 and 8 
+### In Laravel 7 and 8
 
-The library change response, so you can validate like this:
+You can use the old validation way (since Laravel 5.5 - 6.x)
+
+In laravel 7 and 8 the library change response, so you can validate like this:
 
 ```php
 $response = PagaloGT::add(1, 'product', 100.00)->withTestCard()->withTestCredentials()->pay();
