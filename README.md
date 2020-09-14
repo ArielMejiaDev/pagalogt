@@ -99,6 +99,25 @@ $response = PagaloGT::add(1, 'Test transaction from Laravel 5.5', 100.00)
     }
 ```
 
+In Laravel 7 and 8 the library change response, so you can validate like this:
+
+```php
+$response = PagaloGT::add(1, 'product', 100.00)->withTestCard()->withTestCredentials()->pay();
+if($response->successful()) {
+    // do something
+}
+```
+
+Other methods to validate:
+
+```php
+$response->fail();
+$response->successful();
+$response->ok()
+$response->header('single header');
+$response->headers();
+```
+
 ### Support Cybersource:
 
 The library is ready to support cybersource transactions, it only needs to add a config variable:
