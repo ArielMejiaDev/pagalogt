@@ -99,7 +99,9 @@ $response = PagaloGT::add(1, 'Test transaction from Laravel 5.5', 100.00)
     }
 ```
 
-In Laravel 7 and 8 the library change response, so you can validate like this:
+### Validation in Laravel 7 and 8 
+
+The library change response, so you can validate like this:
 
 ```php
 $response = PagaloGT::add(1, 'product', 100.00)->withTestCard()->withTestCredentials()->pay();
@@ -131,7 +133,7 @@ You need to add a script to generate the ```deviceFingerPrint``` on your checkou
 In the docs you can get scripts ready to use for:
 
 - Blade file: [Cybersource Script for blade files](BLADESCRIPT.md)
-- VueJS file:
+- VueJS file: (pending)
 
 ### Testing
 
