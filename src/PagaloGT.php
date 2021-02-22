@@ -2,6 +2,7 @@
 
 namespace ArielMejiaDev\PagaloGT;
 
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
@@ -17,8 +18,7 @@ class PagaloGT
 
     const APPROVE_REASON_CODE = 100;
     const APPROVE_DECISION = "ACCEPT";
-    private $responseDecision;
-    private $responseReasonCode;
+    protected $response;
 
     public function __construct()
     {
@@ -114,6 +114,21 @@ class PagaloGT
         return Http::retry($this->retryTimes, $this->retrySleep)->post($this->url, $data);
     }
 
+    public function isSuccessful()
+    {
+        return isset($this->response->json()['decision']) &&
+            $this->response->json()['decision'] === self::APPROVE_DECISION &&
+            $this->response->json()['reasonCode'] === self::APPROVE_REASON_CODE;
+    }
+
+    /**
+     * @return Response
+     */
+    public function response(): Response
+    {
+        return $this->response;
+    }
+
     public function pay()
     {
         $data = [
@@ -123,6 +138,7 @@ class PagaloGT
             'tarjetaPagalo' => json_encode($this->card),
         ];
 
-        return Http::post($this->url, $data);
+        $this->response = Http::post($this->url, $data);
+        return $this;
     }
 }
