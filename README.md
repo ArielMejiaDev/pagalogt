@@ -5,6 +5,8 @@
 
 It provides a fluent syntax to make payments in Laravel with PagaloGT payment gateway.
 
+To learn more about the package [here the documentatio](https://laravel-pagalogt.netlify.app/)
+
 ## Installation
 
 You can install the package via composer:
